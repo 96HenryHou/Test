@@ -43,6 +43,7 @@ public class UserController {
 	@RequestMapping(value="test")
 	public ModelAndView testViewResolove(String str){
 		System.out.println("aaaaaaaaaaaaa");
+		System.out.println("!!!!");
 		return new ModelAndView("index");
 	}
 	
