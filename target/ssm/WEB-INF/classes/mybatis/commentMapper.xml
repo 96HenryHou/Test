@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.StrongWind.ETeacher.dao.ICommentDao">
+<insert id="ThumbsUp" >	
+    INSERT INTO commentDetail 
+		<trim prefix="value(" suffix=")" suffixOverrides=",">
+			<if test="messageNum != null">
+				#{messageNum},
+			</if>
+			<if test="like != null">
+				#{like},
+			</if>
+			<if test="unlike != null">
+				#{unlike},
+			</if>
+		</trim>
+</insert>
+
+</mapper>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.StrongWind.ETeacher.dao.IUserDao">
+	<!-- <select id="userLoginIn" resultType="com.StrongWind.ETeacher.pojo.User" 
+		useCache="false"> -->
+	<!-- select *from users where username=#{username} and password=#{password} -->
+	<!-- </select> -->
+
+	<select id="userLoginIn" resultType="com.StrongWind.ETeacher.pojo.User"
+		useCache="false">
+		SELECT
+		*
+		FROM
+		account
+		<where>
+			<if test="username !=null">
+				username=#{username}
+			</if>
+			<if test="password!=null">
+				and password=#{password}
+			</if>
+		</where>
+	</select>
+
+<insert id="userRegister" useGeneratedKeys="true">
+		INSERT INTO account
+		<trim prefix="value(" suffix=")" suffixOverrides=",">
+			<if test="username !=''">
+				#{username},
+			</if>
+			<if test="password !=''">
+				#{password},
+			</if>
+		</trim>
+	</insert>
+	
+	<insert id="insertMessageById" useGeneratedKeys="true">
+		INSERT INTO usermessage
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userid!= ''">
+				userid,
+			</if>
+			<if test="title != ''">
+				title,
+			</if>
+			<if test="content != ''">
+				content,
+			</if>
+		</trim>
+		<trim prefix="value(" suffix=")" suffixOverrides=",">
+			<if test="userid!= ''">
+				#{userid},
+			</if>
+			<if test="title != ''">
+				#{title},
+			</if>
+			<if test="content != ''">
+				#{content},
+			</if>
+		</trim>
+	</insert>
+
+	<select id="showMessageByUserId" resultType="net.sf.json.JSONObject">
+		<!-- 具体的sql -->
+		SELECT
+		*
+		FROM
+		usermessage
+		<where>
+			<if test="userid!='' ">
+				#{userid}
+			</if>
+		</where>
+		limit 20
+	</select>
+</mapper>

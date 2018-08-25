@@ -1,0 +1,64 @@
+四种会话技术
+1.request 2.response 3.session 4.cookies
+1.  客服端请求服务端时建立request会话
+2. 服务器端反馈客服端  。。。 会话
+3. 在一次访问时候建立的 session 会话。直至关闭浏览器
+4。 cookies  ？
+5。 数据连接池？
+6.什么是ORM？
+7.java 中如何进行事务处理？
+8.Servlet 和 CGI 的区别？
+9. JSP的内置对象有哪些？
+HttpServletRequest, HttpServletResponse.他包含了浏览器的信息，并且提供了几个用于
+获取cookies，header ，session方法。
+10.servlet 的生命周期
+构造函数 init（） service（） destroy（）
+service 不需要重写 ，因为httpServlet 已经重写 继承genericServlet 中的 service，
+public 的 Service 是继承GenericServlet用来目的使用从来接受客服端的请求并传递给protected service。protected 辅助转接调用 doget 还是dopost 方法，并加入了缓存机制
+并用来判断是doGet doPost请求。而且其中加入了缓存机制
+
+11.javaweb 的跳转机制
+1.服务器端跳转         request.getRequestDispatcher（"index.jsp"）.forward(request,response)
+2.客服端跳转 response.SendRediect("");
+12.JSP和servlet 的区别是什么，相同点是什么？
+
+13JSON和XML的区别
+　（1）JSON底层原理：遍历字符串中的字符，最终根据格式规定的特殊字符，比如{}、[]、：等进行区分，{}号表示字典，[]号表示数组，：号是字典的键和值的分水岭，最终仍是将JSON转化为字典，只不过字典中的值可能是“字典、数组或者字符串而已”。.轻量级数据交换格式，用简单的key:value键值对即可标识所有对象关系，不需要过多的标签；
+
+　　（2）XML底层原理：XML解析常用的解析方法有两种：DOM解析和SAX解析；DOM采用的是树形结构的方式访问XML文档，而SAX采用的是事件模型；DOM解析把XML文档转化为一个包含其内容的树，并可以对树进行遍历，使用DOM解析器的时候需要处理整个XML文档，所以对内存和性能的要求比较高
+
+14.JavaScript是一种属于网络的脚本语言,已经被广泛用于Web应用开发,常用来为网页添加各式各样的动态功能,为用户提供更流畅美观的浏览效果。通常JavaScript脚本是通过嵌入在HTML中来实现自身的功能的。 [3]  
+1. 
+是一种解释性脚本语言（代码不进行预编译）。 [4]  
+
+2. 
+主要用来向HTML（标准通用标记语言下的一个应用）页面添加交互行为。 [4]  
+
+3. 
+可以直接嵌入HTML页面，但写成单独的js文件有利于结构和行为的分离。 [4]  
+
+4. 
+跨平台特性，在绝大多数浏览器的支持下，可以在多种平台下运行（如Windows、Linux、Mac、Android、iOS等）。
+
+
+15、request.getParameter()和request.getAttribute()的区别？
+
+a、request.getParameter()获取的类型是String；
+
+    request.getAttribute()获取的类型是Object
+
+b、request.getPrameter()获取的是POST/GET传递的参数值和URL中的参数；
+
+     request.getAttribute()获取的是对象容器中的数据值/对象
+
+c、request.setAttribute()和request.getAttribute()可以发送、接收对象；
+
+    request.getParamter()只能接收字符串，官方不开放request.setParamter()（也就是没有这个方法）
+
+    setAttribute()和getAttribute()的传参原理：
+
+    setAttribute()是应用服务器把这个对象放在该页面所对应的一块内存中去，当你的页面服务器重定向到另外一个页面时，
+
+    应用服务器会把这块内存拷贝到另一个页面所对应的那块内存中。这个就可以通过getAttribute()获取到相应的参数值或者对象。
+
+ https://www.cnblogs.com/darren0415/p/6040894.html

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ETeacher
+Bundle-SymbolicName: ETeacher
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.StrongWind.ETeacher.controller,
+ com.StrongWind.ETeacher.dao,
+ com.StrongWind.ETeacher.pojo,
+ com.StrongWind.ETeacher.service
+Import-Package: javax.annotation,
+ javax.servlet
