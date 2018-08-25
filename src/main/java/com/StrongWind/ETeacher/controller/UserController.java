@@ -46,7 +46,13 @@ public class UserController {
 		System.out.println("!!!!");
 		return new ModelAndView("index");
 	}
-	
+
+	@RequestMapping(value="test")
+	public ModelAndView testGitUpdate(String str){
+		System.out.println("aaaaaaaaaaaaa");
+		System.out.println("!!!!");
+		return new ModelAndView("index");
+	}
 
 	
 	@ResponseBody
